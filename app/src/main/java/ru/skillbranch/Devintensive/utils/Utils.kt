@@ -2,7 +2,7 @@ package ru.skillbranch.Devintensive.utils
 
 object Utils {
     fun parseFullName(fullName: String?):Pair<String?, String?> {
-        //TODO FIX!!!
+
         val parts: List<String>? = fullName?.split(" ")
 
         var firstName = parts?.getOrNull(0)
@@ -10,21 +10,19 @@ object Utils {
         return firstName to lastName
     }
 
-    fun transliteration(payload: String, devider: String = " "): String {
-        TODO("not implemented")
-    }
+
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        val firstName: String? = firstName?.let{it.first().toUpperCase().toString()}
-        val lastName: String? = lastName?.let{it.first().toUpperCase().toString()}
-        if (firstName.equals(null) && lastName.equals(null)){
+        val firstLetter: String? = firstName?.let{it.first().toUpperCase().toString()}
+        val lastLetter: String? = lastName?.let{it.first().toUpperCase().toString()}
+        if (firstLetter.equals(null) && lastLetter.equals(null)){
             return null
-        } else if (firstName!=null && lastName==null) {
-            return "$firstName"
-        } else if (firstName==null && lastName!=null) {
-            return "$lastName"
+        } else if (firstLetter!=null && lastLetter==null) {
+            return "$firstLetter"
+        } else if (firstLetter==null && lastLetter!=null) {
+            return "$lastLetter"
         } else {
-            return "$firstName$lastName"
+            return "$firstLetter$lastLetter"
         }
 
 
