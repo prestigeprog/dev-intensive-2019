@@ -13,18 +13,11 @@ object Utils {
 
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        val firstLetter: String? = firstName?.let{it.first().toUpperCase().toString()}
-        val lastLetter: String? = lastName?.let{it.first().toUpperCase().toString()}
-        if (firstLetter.equals(null) && lastLetter.equals(null)){
-            return null
-        } else if (firstLetter!=null && lastLetter==null) {
-            return "$firstLetter"
-        } else if (firstLetter==null && lastLetter!=null) {
-            return "$lastLetter"
-        } else {
-            return "$firstLetter$lastLetter"
-        }
+        val firstLetter = firstName?.firstOrNull()
+        val secondLetter = lastName?.firstOrNull()
+        return "$firstLetter$secondLetter"
 
 
     }
+
 }
